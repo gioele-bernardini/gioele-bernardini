@@ -1,4 +1,9 @@
-## Hi there 👋
+# 👋 Hi there!
+
+### Quick Facts About Me:
+1. 📚 I'm working on a research thesis about embedded AI.
+2. 🧠 I love learning, always and forever.
+3. 🎴 I can memorize a deck of cards in under 10 minutes.
 
 <!--
 **gioele-bernardini/gioele-bernardini** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
