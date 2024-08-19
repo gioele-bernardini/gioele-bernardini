@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem} % Added for underline functionality
+
+\hypersetup{breaklinks=true,%
+  pagecolor=white,%
+  colorlinks=true,%
+  linkcolor=cyan,%
+  urlcolor=MyDarkBlue}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{$\bullet$} % Change bullet point symbol
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Start Document     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{resume_header}
+\name{Gioele Bernardini}
+\program{Computer Engineering Major}
+\contact{\href{mailto:gioele.g@outlook.com}{gioele.g@outlook.com} \hspace{1cm} \href{tel:+39-334-852-2471}{334-852-2471} \hspace{1cm} \href{https://www.linkedin.com/in/gioele-bernardini/}{linkedin.com/in/gioele-bernardini} \hspace{1cm} \href{https://github.com/gioele-bernardini}{github.com/gioele-bernardini}}
+\vspace{0.3cm} % Adjust this value as needed
+\end{resume_header}
+
+\begin{resume_section}{About Me}
+  \begin{nospacetabbing}
+  \textbf{Technical Skills}  \= \qquad Assembly x86, C/C++, Rust, Python, Java, Unix/Linux, PostgreSQL\\*
+  \textbf{Languages} \> \qquad Very Fluent in English; Conversational Basics in German\\*
+  \textbf{Interests} \> \qquad Embedded Systems, Capture The Flag, Electronics\\* \end{nospacetabbing}
+\end{resume_section}
+
+\begin{resume_section}{Work Experience}
+
+    \begin{resume_employer}{University of Trento}{Research Student}{Trento, IT}{July 2024 – Present}
+    \item Developing a research thesis on \underline{AI applied to microcontrollers}
+    \item Learning to master Arduino, C++, and approach problems analytically with open discussions, without points of reference. That's making me passionate about \underline{low-level computing} and eager to work in fields related to \underline{Embedded AI}
+  \end{resume_employer}
+
+  \begin{resume_employer}{Various Employers}{Cashier, Food Services, and Children's Entertainer}{Trento and Moena, IT}{Summer 2019 – April 2023}
+    \item Worked periodically in various food service companies, including McDonald’s and Coop Italia, as a full-time job during studies to not burden my family, achieve independence, and fully finance my university education myself
+    \item In Summer 2019, Co-facilitated a class at the Kessler Foundation based on the use of LEGO and Arduino, then co-managed one of the most frequented summer camps in my region and successfully ran my own workshop in an extremely stressful and noisy environment that required constant attention
+  \end{resume_employer}
+
+\end{resume_section}
+
+\begin{resume_section}{Competitions and Personal Projects}
+
+  \begin{resume_subsection}[(February - March 2020)]{Covid-19, Case Study using R}
+    \begin{subitems}
+      \item By utilizing R, I conducted a comprehensive case study on the demographic impact of COVID-19, resulting in a perfect score for the report and an outstanding course grade
+      \item Driven by a belief in \underline{open-source principles}, I willingly distributed my final report to all my university peers, establishing it as a central reference point. This endeavor earned accolades from both my peers and the course instructor
+    \end{subitems}
+  \end{resume_subsection}
+
+  \begin{resume_subsection}[(September - December 2023)]{Minecraft-like game using Rust}
+    \begin{subitems}
+      \item Enrolled in one of the most advanced courses, taught by a professor with experience from Stanford, I completed a complex Rust project, resulting in a Minecraft-like 2D game built with Rust and Egui
+      \item This endeavor necessitated collaboration with dozens of individuals, crucial time management to meet deadlines, and a deep understanding of algorithms, data structures, as well as \underline{object-oriented programming} principles for team cohesion
+    \end{subitems}
+  \end{resume_subsection}
+
+  \begin{resume_subsection}[]{Personal Projects on GitHub}
+    \begin{subitems}
+      \item Continuously working on various projects showcased on my \href{https://github.com/gioele-bernardini}{GitHub profile}
+      \item Developing a Pong game for the original 8086 in Assembly
+      \item Programming a Multi-Layer Perceptron (MLP) neural network library in C++
+      \item Engaged in \underline{other ongoing projects}, working on them daily. Feel free to explore them personally on GitHub
+    \end{subitems}
+  \end{resume_subsection}
+
+\end{resume_section}
+
+\begin{resume_section}{Education}
+
+  \begin{resume_subsection}[Trento, IT (2019 - 2021)]{University of Trento - Economics and Management}
+    \begin{subitems}
+      \item Developed quick adaptability and responsiveness to changing environments: transitioned university in response to the challenges posed by the Covid-19 pandemic landscape
+      \item Anticipated graduation in the upcoming years, actively pursuing completion
+    \end{subitems}
+  \end{resume_subsection}
+
+  \begin{resume_subsection}[Trento, IT (2021 - Present)]{University of Trento - Computer and Electronic Engineering}
+    \begin{subitems}
+      \item Anticipated graduation in September 2024
+      \item Many advanced and highly relevant courses attended: \underline{FOG Computing and ML} among others
+    \end{subitems}
+  \end{resume_subsection}
+
+\end{resume_section}
+
+\end{document}
+
