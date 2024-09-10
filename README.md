@@ -2,7 +2,7 @@
 
 ### Quick Facts About Me:
 1. 📚 I'm working on a research thesis about embedded AI.
-2. 🧠 I love to learn, but it's the deep understanding that I seek.
+2. 🧠 I’m here to understand, because anyone can learn.
 3. 🎴 I can memorize a deck of cards in under 10 minutes.
 
 <!--
